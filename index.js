@@ -30,14 +30,14 @@ function start() {
     const chatId = msg.chat.id;
 
     if (text === "/start") {
-      await bot.sendMessage(chatId, `hello pipa`);
+      await bot.sendMessage(chatId, `hello, я пепе`);
       return bot.sendMessage(
         chatId,
         "https://tlgrm.ru/_/stickers/4dd/300/4dd300fd-0a89-3f3d-ac53-8ec93976495e/3.jpg"
       );
     }
     if (text === "/info") {
-      return bot.sendMessage(chatId, `${msg.from.first_name}, ti pipa`);
+      return bot.sendMessage(chatId, `${msg.from.first_name}, ты не пепе, я пепе`);
     }
     if (text === "/game") {
      return startGame(chatId) }
@@ -51,7 +51,7 @@ function start() {
   if(data === '/again'){
 return startGame(chatId)
     }
-    if (data === chats[chatId]) {
+    if (data == chats[chatId]) {
       return bot.sendMessage(
         chatId,
         `ты угадал! это ${chats[chatId]}!!!`,
