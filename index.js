@@ -8,6 +8,8 @@ const bot = new TelegramApi(token, { polling: true });
 
 const chats = {};
 
+
+
 const startGame = async (chatId) => {
   await bot.sendMessage(
     chatId,
@@ -28,6 +30,12 @@ function start() {
   bot.on("message", async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
+
+    if(text === 'kk' ){
+    return setInterval(() => {
+        bot.sendMessage(chatId, 'давай играть!');
+      }, 5 * 60 * 1000); // 5 минут в миллисекундах
+    }
 
     if (text === "/start") {
       await bot.sendMessage(chatId, `hello, я пепе`);
@@ -67,6 +75,8 @@ return startGame(chatId)
 
     console.log(msg);
   });
+
+
 }
 
 start();
